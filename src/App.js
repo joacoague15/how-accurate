@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import GenerateSection from "./GenerateSection";
+import ImgGenerated from "./ImgGenerated";
+import { useState } from "react";
 
 function App() {
+  const [img, setImg] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundColor: "black", height: "100vh", width: "100vw", display: "flex" }} className="App">
+        <GenerateSection setImg={setImg} />
+        {img && <ImgGenerated img={img} />}
     </div>
   );
 }
