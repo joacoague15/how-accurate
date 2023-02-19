@@ -1,6 +1,11 @@
 import axios from "axios";
+import {useEffect} from "react";
 
-const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation }) => {
+const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation, isLoaded, setIsLoaded }) => {
+    useEffect(() => {
+        console.log(isLoaded)
+    }, [isLoaded])
+
     const generateImg = () => {
         axios.get('http://localhost:8080/generateImg', {
             params: {
@@ -8,7 +13,6 @@ const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation 
             }
         })
             .then(response => {
-                console.log(response)
                 setImg(response.data.data)
             })
             .catch((error) => {
@@ -35,12 +39,19 @@ const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation 
     }
 
     const handleOnClick = () => {
+        setIsLoaded(false);
         generateImg();
         getAccuracyValue();
         getExplanation();
     }
 
-    return <button onClick={handleOnClick} style={{ display: "flex", height: 50, margin: "20px auto", justifyContent: "center", alignItems: "center", textAlign: "center", width: "20%" }} type="button" className="btn btn-light">Generate</button>
+    if (isLoaded)
+        return <button onClick={handleOnClick} style={{ display: "flex", height: 50, margin: "20px auto", justifyContent: "center", alignItems: "center", textAlign: "center", width: "20%" }} type="button" className="btn btn-light">Generate</button>
+    return (
+        <div style={{ display: "flex", margin: "20px auto", width: 50, height: 50 }} className="spinner-grow text-light" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    )
 
 };
 
