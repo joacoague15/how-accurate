@@ -1,55 +1,39 @@
 import axios from "axios";
-import { Configuration, OpenAIApi } from "openai";
 
 const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation, isLoaded, setIsLoaded }) => {
-    const configuration = new Configuration({
-        apiKey: process.env.REACT_APP_IMG_CHATGPT_API_KEY,
-    });
-
-    const openai = new OpenAIApi(configuration);
 
     const generateImg = () => {
-        axios.post('https://api.openai.com/v1/images/generations', {
-            "prompt": prompt,
-            "size": "1024x1024",
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.REACT_APP_IMG_GENERATION_KEY}`
+        axios.get('https://stable-demo.rj.r.appspot.com/generateImg', {
+            params: {
+                prompt: prompt,
+                size: "1024x1024",
             }
-        }).then(response => setImg(response.data.data[0].url))
-          .catch(error => console.log(error)
+        })
+            .then(response => setImg(response.data.data[0].url))
+            .catch(error => console.log(error)
         )
     }
 
-    const getAccuracyValue = async () => {
-        try {
-            const completion = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: `Respond this question only with a number from 1 to 100.
-                Calculate how accurate is this prompt for stable diffusion: "${prompt}"?
-                Pay attention to this, I want a max 2 character length response.`,
-                max_tokens: 100,
-            });
-            setAccuracyPercentage(completion.data.choices[0].text);
-        }
-        catch (error) {
-            console.log(error);
-        }
+    const getAccuracyValue = () => {
+        axios.get('https://stable-demo.rj.r.appspot.com/accuracy', {
+            params: {
+                prompt: prompt,
+                size: "1024x1024",
+            }
+        })
+            .then(response => setAccuracyPercentage(response.data.choices[0].text))
+            .catch(error => console.log(error))
     }
 
-    const getExplanation = async () => {
-        try {
-            const completion = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: `Tell me in less than 100 words how can i improve the accuracy of this prompt for stable diffusion: "${prompt}"?`,
-                max_tokens: 256,
-            });
-            setExplanation(completion.data.choices[0].text);
-        }
-        catch (error) {
-            console.log(error)
-        }
+    const getExplanation = () => {
+        axios.get('https://stable-demo.rj.r.appspot.com/explanation', {
+            params: {
+                prompt: prompt,
+                size: "1024x1024",
+            }
+        })
+            .then(response => setExplanation(response.data.choices[0].text))
+            .catch(error => console.log(error))
     }
 
     const handleOnClick = () => {
