@@ -9,7 +9,7 @@ function App() {
     return (
     <div style={{ backgroundColor: "black", height: "100vh", width: "100vw", display: "flex" }} className="App">
         <GenerateSection setImg={setImg} isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
-        {img && <ImgGenerated img={img} isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
+        <ImgGenerated img={img} isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
     </div>
   );
 }
