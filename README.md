@@ -8,8 +8,6 @@ To get started with the Prompt Accuracy Checker:
 Clone this repository and run `npm start`
 Clone the prompt-accuracy-checker-be API
 
-Alternatively, you can visit the live demo at [example.com.](https://joacoague15.github.io/how-accurate-prod/)
-
 ## How to Use
 1. Enter your prompt in the text input field.
 2. Click the "Generate" button.
