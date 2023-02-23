@@ -5,7 +5,7 @@ The Prompt Accuracy Checker is an application that analyzes the accuracy of prom
 ## Getting Started
 
 To get started with the Prompt Accuracy Checker: 
-Clone this repository and run `npm start`
+Clone this repository and run `npm install` && `npm start`
 Clone the prompt-accuracy-checker-be API
 
 ## How to Use
