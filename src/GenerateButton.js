@@ -9,7 +9,7 @@ const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation,
                 size: "1024x1024",
             }
         })
-            .then(response => setImg(response.data.data[0].url))
+            .then(response => setImg(response.data.data))
             .catch(error => console.log(error)
         )
     }
@@ -21,7 +21,7 @@ const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation,
                 size: "1024x1024",
             }
         })
-            .then(response => setAccuracyPercentage(response.data.choices[0].text))
+            .then(response => setAccuracyPercentage(response.data.data))
             .catch(error => console.log(error))
     }
 
@@ -32,7 +32,7 @@ const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation,
                 size: "1024x1024",
             }
         })
-            .then(response => setExplanation(response.data.choices[0].text))
+            .then(response => setExplanation(response.data.data))
             .catch(error => console.log(error))
     }
 
