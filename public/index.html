@@ -13,6 +13,30 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <style>
+      body {
+        background-color: #000000;
+      }
+
+      #title {
+        animation: pulse 1s ;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-200px);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.5;
+          transform: translate(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0px);
+        }
+      }
+    </style>
     <title>React App</title>
   </head>
   <body>
