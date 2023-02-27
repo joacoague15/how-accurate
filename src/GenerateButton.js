@@ -44,7 +44,7 @@ const GenerateButton = ({ setImg, prompt, setAccuracyPercentage, setExplanation,
     }
 
     if (isLoaded)
-        return <button onClick={handleOnClick} style={{ display: "flex", height: 50, margin: "20px auto", justifyContent: "center", alignItems: "center", textAlign: "center", width: "10vw" }} type="button" className="btn btn-light" disabled={!prompt}>Generate</button>
+        return <button onClick={handleOnClick} style={{ display: "flex", height: 50, margin: "20px auto", justifyContent: "center", alignItems: "center", textAlign: "center" }} type="button" className="btn btn-light" disabled={!prompt}>Generate</button>
     return (
         <div style={{ display: "flex", margin: "20px auto", width: 50, height: 50 }} className="spinner-grow text-light" role="status">
             <span className="visually-hidden">Loading...</span>

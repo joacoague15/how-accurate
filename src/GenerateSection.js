@@ -15,11 +15,11 @@ const GenerateSection = ({setImg, isLoaded, setIsLoaded}) => {
                     <GenerateButton setImg={setImg} prompt={prompt} setAccuracyPercentage={setAccuracyPercentage} setExplanation={setExplanation} isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
                 </div>
                 <div>
-                    <label style={{ margin: "auto", display: "flex", width: "20vw", color: "white" }} htmlFor="howAccurate">Accuracy estimation</label>
-                    <input style={{ margin: "auto", display: "flex", width: "20vw" }} value={accuracyPercentage? parseInt(accuracyPercentage) : 0} type="range" className="form-range" id="howAccurate" disabled />
+                    <label id="how-accurate-label" style={{ margin: "auto", display: "flex", color: "white" }} htmlFor="howAccurate">Accuracy estimation</label>
+                    <input style={{ margin: "auto", display: "flex" }} value={accuracyPercentage? parseInt(accuracyPercentage) : 0} type="range" className="form-range" id="how-accurate-input" disabled />
                     <h4 style={{ color: "white", textAlign: "center" }}>{accuracyPercentage}%</h4>
                     <h4 style={{ color: "white", textAlign: "center", margin: 20 }}>How can you improve It?</h4>
-                    <p style={{ display: "flex", color: "white", padding: 20, width: "40%", margin: "auto" }}>{explanation}</p>
+                    <p style={{ display: "flex", color: "white", padding: 20, margin: "auto" }}>{explanation}</p>
                 </div>
             </div>
     )
