@@ -1,4 +1,4 @@
-# Prompt Accuracy Checker
+# Prompt Accuracy Checker UI
 
 The Prompt Accuracy Checker is an application that analyzes the accuracy of prompts for stable diffusion. With the click of a button, users can submit a prompt and receive a percentage score indicating how detailed the prompt is. In addition to the score, users will also see an image related to the prompt and a short description of the prompt.
 
@@ -6,7 +6,6 @@ The Prompt Accuracy Checker is an application that analyzes the accuracy of prom
 
 To get started with the Prompt Accuracy Checker: 
 Clone this repository and run `npm install` && `npm start`
-Clone the prompt-accuracy-checker-be API
 
 ## How to Use
 1. Enter your prompt in the text input field.
